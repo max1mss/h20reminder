@@ -37,8 +37,8 @@ namespace H2Oreminder
             if (radioButton1.Checked)
             {
                 // Instantiate and show Form3
-                Form3 form3 = new Form3();
-                form3.Show();
+                Form4 form4 = new Form4();
+                form4.Show();
             }
             else if (radioButton2.Checked)
             {
