@@ -41,3 +41,4 @@ C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.csproj.Cor
 C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.csproj.CopyComplete
 C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.exe
 C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.pdb
+C:\Users\proma\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.Form4.resources
