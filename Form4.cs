@@ -4,14 +4,41 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace H2Oreminder
 {
     public partial class Form4 : Form
     {
+
+
+        private const string ApiKey = "YOUR_API_KEY";
+        private const string BaseUrl = "http://api.openweathermap.org/data/2.5/weather";
+
+        private readonly HttpClient _httpClient = new HttpClient();
+
+        public async Task<WeatherData> GetWeatherDataAsync(string city)
+        {
+            string apiUrl = $"{BaseUrl}?q={city}&appid={ApiKey}&units=metric";
+
+            HttpResponseMessage response = await _httpClient.GetAsync(apiUrl);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string json = await response.Content.ReadAsStringAsync();
+                WeatherData weatherData = JsonConvert.DeserializeObject<WeatherData>(json);
+                return weatherData;
+            }
+            else
+            {
+                throw new Exception("Failed to retrieve weather data.");
+            }
+        }
+
         public Form4()
         {
             InitializeComponent();
@@ -24,24 +51,24 @@ namespace H2Oreminder
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            textBox1.Text = numericUpDown1.Value.ToString();
+            textBox1.Text = weightNumericUpDown.Value.ToString();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             if (int.TryParse(textBox1.Text, out int value))
             {
-                if (value >= numericUpDown1.Minimum && value <= numericUpDown1.Maximum)
+                if (value >= weightNumericUpDown.Minimum && value <= weightNumericUpDown.Maximum)
                 {
-                    numericUpDown1.Value = value;
+                    weightNumericUpDown.Value = value;
                 }
-                else if (value < numericUpDown1.Minimum)
+                else if (value < weightNumericUpDown.Minimum)
                 {
-                    numericUpDown1.Value = numericUpDown1.Minimum;
+                    weightNumericUpDown.Value = weightNumericUpDown.Minimum;
                 }
                 else
                 {
-                    numericUpDown1.Value = numericUpDown1.Maximum;
+                    weightNumericUpDown.Value = weightNumericUpDown.Maximum;
                 }
             }
         }
@@ -65,33 +92,65 @@ namespace H2Oreminder
             }
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-            if (int.TryParse(textBox3.Text, out int value))
-            {
-                if (value >= numericUpDown3.Minimum && value <= numericUpDown3.Maximum)
-                {
-                    numericUpDown3.Value = value;
-                }
-                else if (value < numericUpDown3.Minimum)
-                {
-                    numericUpDown3.Value = numericUpDown3.Minimum;
-                }
-                else
-                {
-                    numericUpDown3.Value = numericUpDown3.Maximum;
-                }
-            }
-        }
+        
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             textBox2.Text = numericUpDown2.Value.ToString();
         }
 
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            textBox3.Text = numericUpDown3.Value.ToString();
+            // Get data from the user
+            int weight = (int)weightNumericUpDown.Value; // weight in pounds
+            double activityModifier = GetActivityModifier(); // activity modifier
+            double waterIntake = CalculateWaterIntake(weight, activityModifier); // calculate water intake
+
+            // Display the result in the label (convert gallons to liters)
+            double waterIntakeLiters = ConvertGallonsToLiters(waterIntake);
+            waterIntakeLabel.Text = $"Your daily water intake: {waterIntakeLiters:F2} liters";
         }
+
+        private double ConvertGallonsToLiters(double gallons)
+        {
+            // 1 gallon = 3.78541 liters
+            return gallons * 3.78541;
+        }
+
+        private double GetActivityModifier()
+        {
+            // izvēlamies aktīvuma koeficientus
+            if (sedentaryRadioButton.Checked)
+            {
+                return 0.5; // sedentary
+            }
+            else if (moderatelyActiveRadioButton.Checked)
+            {
+                return 0.6; // moderatelyActive
+            }
+            else if (activeRadioButton.Checked)
+            {
+                return 0.7; // active
+            }
+            else if (veryActiveRadioButton.Checked)
+            {
+                return 0.8; // veryActive
+            }
+            else
+            {
+                return 0.6; // pēc noklusējuma
+            }
+        }
+
+        private double CalculateWaterIntake(int weight, double activityModifier)
+        {
+            // kalkulācija
+            double waterIntake = (weight * 2 / 3) * activityModifier;
+            return waterIntake;
+        }
+
+        
     }
 }
+
+

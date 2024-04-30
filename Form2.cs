@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -72,6 +73,11 @@ namespace H2Oreminder
         {
             Form4 form4 = new Form4();
             form4.Show();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.healthline.com/nutrition/7-health-benefits-of-water");
         }
     }
 }
