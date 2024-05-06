@@ -78,10 +78,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(115, 35);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(410, 13);
+            this.label4.Size = new System.Drawing.Size(148, 13);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Ievadiet informāciju par sevi, lai mēs varētu pielāgot jums jūsu ideālu dzeršanas" +
-    " līmeni.\r\n";
+            this.label4.Text = "Water consumption calculator";
             // 
             // weightNumericUpDown
             // 

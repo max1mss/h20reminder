@@ -42,3 +42,5 @@ C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.csproj.Cop
 C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.exe
 C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.pdb
 C:\Users\proma\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.Form4.resources
+C:\Users\proma\Desktop\H2Oreminder\H2Oreminder\bin\Debug\Newtonsoft.Json.dll
+C:\Users\proma\Desktop\H2Oreminder\H2Oreminder\bin\Debug\Newtonsoft.Json.xml

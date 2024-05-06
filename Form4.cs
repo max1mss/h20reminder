@@ -16,7 +16,7 @@ namespace H2Oreminder
     {
 
 
-        private const string ApiKey = "YOUR_API_KEY";
+       /* private const string ApiKey = "YOUR_API_KEY";
         private const string BaseUrl = "http://api.openweathermap.org/data/2.5/weather";
 
         private readonly HttpClient _httpClient = new HttpClient();
@@ -38,7 +38,7 @@ namespace H2Oreminder
                 throw new Exception("Failed to retrieve weather data.");
             }
         }
-
+       */
         public Form4()
         {
             InitializeComponent();
@@ -111,11 +111,11 @@ namespace H2Oreminder
             waterIntakeLabel.Text = $"Your daily water intake: {waterIntakeLiters:F2} liters";
         }
 
-        private double ConvertGallonsToLiters(double gallons)
-        {
-            // 1 gallon = 3.78541 liters
-            return gallons * 3.78541;
-        }
+       private double ConvertGallonsToLiters(double gallons)
+       {
+            // Párejam no pound uz l
+            return gallons * 0.1;
+       }
 
         private double GetActivityModifier()
         {
