@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SQLite;
+using Newtonsoft.Json;
 
 //https://www.hydrationforhealth.com/en/hydration-tools/hydration-calculator/
 //https://www.wku.edu/news/articles/index.php?view=article&articleid=2762&return=archive

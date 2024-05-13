@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Net.Http;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using RestSharp;//fibit api
 
 namespace H2Oreminder
 {
@@ -73,32 +75,9 @@ namespace H2Oreminder
             }
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            if (int.TryParse(textBox2.Text, out int value))
-            {
-                if (value >= numericUpDown2.Minimum && value <= numericUpDown2.Maximum)
-                {
-                    numericUpDown2.Value = value;
-                }
-                else if (value < numericUpDown2.Minimum)
-                {
-                    numericUpDown2.Value = numericUpDown2.Minimum;
-                }
-                else
-                {
-                    numericUpDown2.Value = numericUpDown2.Maximum;
-                }
-            }
-        }
-
         
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
-        {
-            textBox2.Text = numericUpDown2.Value.ToString();
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             // Get data from the user
@@ -113,11 +92,12 @@ namespace H2Oreminder
 
        private double ConvertGallonsToLiters(double gallons)
        {
-            // Párejam no pound uz l
+            // izlabojam rezultātu
             return gallons * 0.1;
        }
+        
 
-        private double GetActivityModifier()
+        private double GetActivityModifier() // izmantot šos koeficientus no datubāzes(lai būtu vairāk tabulu)
         {
             // izvēlamies aktīvuma koeficientus
             if (sedentaryRadioButton.Checked)
@@ -141,6 +121,51 @@ namespace H2Oreminder
                 return 0.6; // pēc noklusējuma
             }
         }
+        
+
+        /*private double GetActivityModifier()
+        {
+            string connectionString = "Data Source=active_koeficienti.db;Version=3;"; // Update connection string with your SQLite database file path
+            string query = "SELECT [sedentary], [moderatelyActive], [active], [veryActive] FROM ActivityLevel"; // Query to select the values from columns 1 to 7
+
+            using (SQLiteConnection connection = new SQLiteConnection(connectionString))
+            {
+                SQLiteCommand command = new SQLiteCommand(query, connection);
+                connection.Open();
+                SQLiteDataReader reader = command.ExecuteReader();
+
+                double activityModifier = 0.6; // Default value
+
+                if (reader.Read())
+                {
+                    if (sedentaryRadioButton.Checked)
+                    {
+                        activityModifier = Convert.ToDouble(reader["sedentary"]); // sedentary
+                    }
+                    else if (moderatelyActiveRadioButton.Checked)
+                    {
+                        activityModifier = Convert.ToDouble(reader["moderatelyActive"]); // moderatelyActive
+                    }
+                    else if (activeRadioButton.Checked)
+                    {
+                        activityModifier = Convert.ToDouble(reader["active"]); // active
+                    }
+                    else if (veryActiveRadioButton.Checked)
+                    {
+                        activityModifier = Convert.ToDouble(reader["veryActive"]); // veryActive
+                    }
+                    // You can add more conditions if you have more radio buttons
+
+                    // Optionally, you can have a default modifier here as well
+                }
+                reader.Close();
+
+                return activityModifier;
+            }
+        }
+
+        */
+
 
         private double CalculateWaterIntake(int weight, double activityModifier)
         {
@@ -149,7 +174,16 @@ namespace H2Oreminder
             return waterIntake;
         }
 
-        
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form5 form5 = new Form5();
+            form5.Show();
+        }
     }
 }
 
