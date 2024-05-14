@@ -44,6 +44,7 @@ C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.pdb
 C:\Users\proma\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.Form4.resources
 C:\Users\proma\Desktop\H2Oreminder\H2Oreminder\bin\Debug\Newtonsoft.Json.dll
 C:\Users\proma\Desktop\H2Oreminder\H2Oreminder\bin\Debug\Newtonsoft.Json.xml
+<<<<<<< HEAD
 C:\Users\proma\Desktop\Projekta darbs\H2Oreminder\H2Oreminder\bin\Debug\H2Oreminder.exe.config
 C:\Users\proma\Desktop\Projekta darbs\H2Oreminder\H2Oreminder\bin\Debug\H2Oreminder.exe
 C:\Users\proma\Desktop\Projekta darbs\H2Oreminder\H2Oreminder\bin\Debug\H2Oreminder.pdb
@@ -89,3 +90,8 @@ C:\Users\proma\Desktop\Projekta darbs\H2Oreminder\H2Oreminder\bin\Debug\System.T
 C:\Users\proma\Desktop\Projekta darbs\H2Oreminder\H2Oreminder\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\proma\Desktop\Projekta darbs\H2Oreminder\H2Oreminder\bin\Debug\System.ValueTuple.xml
 C:\Users\proma\Desktop\Projekta darbs\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.Form5.resources
+=======
+C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\bin\Debug\Newtonsoft.Json.xml
+>>>>>>> 655a8b7619ef50b001f0b6d491925746d9613287
+C:\Users\mj2601\Desktop\H2Oreminder\H2Oreminder\obj\Debug\H2Oreminder.Form5.resources

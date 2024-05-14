@@ -76,6 +76,7 @@
             // 
             // weightNumericUpDown
             // 
+<<<<<<< HEAD
             this.weightNumericUpDown.Location = new System.Drawing.Point(81, 133);
             this.weightNumericUpDown.Name = "weightNumericUpDown";
             this.weightNumericUpDown.Size = new System.Drawing.Size(120, 20);
@@ -89,6 +90,19 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 9;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+=======
+            this.weightNumericUpDown.Location = new System.Drawing.Point(143, 123);
+            this.weightNumericUpDown.Name = "weightNumericUpDown";
+            this.weightNumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.weightNumericUpDown.TabIndex = 18;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(301, 123);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 17;
+>>>>>>> 655a8b7619ef50b001f0b6d491925746d9613287
             // 
             // sedentaryRadioButton
             // 
@@ -105,8 +119,12 @@
             // moderatelyActiveRadioButton
             // 
             this.moderatelyActiveRadioButton.AutoSize = true;
+<<<<<<< HEAD
             this.moderatelyActiveRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.moderatelyActiveRadioButton.Location = new System.Drawing.Point(207, 280);
+=======
+            this.moderatelyActiveRadioButton.Location = new System.Drawing.Point(412, 352);
+>>>>>>> 655a8b7619ef50b001f0b6d491925746d9613287
             this.moderatelyActiveRadioButton.Name = "moderatelyActiveRadioButton";
             this.moderatelyActiveRadioButton.Size = new System.Drawing.Size(100, 22);
             this.moderatelyActiveRadioButton.TabIndex = 12;
@@ -129,8 +147,12 @@
             // veryActiveRadioButton
             // 
             this.veryActiveRadioButton.AutoSize = true;
+<<<<<<< HEAD
             this.veryActiveRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.veryActiveRadioButton.Location = new System.Drawing.Point(207, 325);
+=======
+            this.veryActiveRadioButton.Location = new System.Drawing.Point(412, 397);
+>>>>>>> 655a8b7619ef50b001f0b6d491925746d9613287
             this.veryActiveRadioButton.Name = "veryActiveRadioButton";
             this.veryActiveRadioButton.Size = new System.Drawing.Size(87, 22);
             this.veryActiveRadioButton.TabIndex = 14;
